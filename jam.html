@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    
+    <title>Jam Digital</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: blue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .jam-digital {
+            color: black;
+            font-size: 5em;
+            font-weight: b;
+            text-shadow: 0 0 20px rgb(red, green, blue);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .jam-digital:hover{
+            transform: scale(1.1);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="jam-digital" id="jam"> 
+        00:00:00
+    </div>
+
+    <script>
+        function perbaharui_jam() {
+            var sekarang = new Date();
+            var jam = sekarang.getHours();
+            var menit = sekarang.getMinutes();
+            var detik = sekarang.getSeconds();
+
+            jam = (jam < 10 ? "0": "") + jam;
+            menit = (menit < 10 ? "0": "") + menit;
+            detik = (detik < 10 ? "0": "") + detik;
+
+            document.getElementById('jam').textContent = 
+            jam + ":" + menit + ":" + detik;
+        }
+        perbaharui_jam();
+        setInterval(perbaharui_jam, 1000);
+    </script>
+</body>
+</html>
